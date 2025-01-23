@@ -18,3 +18,29 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/help - Show this help message"
     )
     await update.message.reply_text(welcome_text)
+
+async def list_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    db = context.bot_data.get('db')
+    
+    if not db:
+        await update.message.reply_text("Sorry, database is not available.")
+        return
+
+    books = db.get_user_books(user_id)
+    
+    if not books:
+        await update.message.reply_text("You haven't uploaded any books yet!")
+        return
+
+    response = "📚 Your uploaded books:\n\n"
+    for book in books:
+        response += f"📖 {book['book_name']}\n"
+        if book['title'] or book['author']:
+            response += f"   Title: {book['title'] or 'N/A'}\n"
+            response += f"   Author: {book['author'] or 'N/A'}\n"
+        if book['categories']:
+            response += f"   Categories: {book['categories']}\n"
+        response += f"   Uploaded: {book['uploaded_at']}\n\n"
+    
+    await update.message.reply_text(response)
