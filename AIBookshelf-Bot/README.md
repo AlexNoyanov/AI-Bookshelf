@@ -1,5 +1,5 @@
 
-<img width="473" alt="Screenshot 2025-01-24 at 16 33 56" src="https://github.com/user-attachments/assets/b4ebec1e-5422-4b81-b166-e21fc4c2e364" />
+![photo_2025-01-24 16 34 45](https://github.com/user-attachments/assets/cc657c7a-5513-4cbe-b032-5d1e80dc6e41)
 
 # AI-Bookshelf
 Put your books here and chat with AI about it
