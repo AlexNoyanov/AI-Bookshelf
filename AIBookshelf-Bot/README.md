@@ -1,5 +1,6 @@
 
-![photo_2025-01-24 16 34 45](https://github.com/user-attachments/assets/cc657c7a-5513-4cbe-b032-5d1e80dc6e41)
+<img src="https://github.com/user-attachments/assets/cc657c7a-5513-4cbe-b032-5d1e80dc6e41" width="400">
+
 
 # AI-Bookshelf
 Put your books here and chat with AI about it
@@ -23,7 +24,7 @@ Simple:
 * Reasoner and Llama AI models using books in PDF
 
 
-## Project structure
+# Project structure
                   ai_bookshelf/
                   ├── config/
                   │   └── config.py         # Database and bot configuration
