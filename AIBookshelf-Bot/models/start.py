@@ -15,7 +15,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/add - Add a new book (send PDF)\n"
         "/list - View your books\n"
         "/categories - Manage categories\n"
-        "/help - Show this help message"
+        "/help - Show this help message\n"
+         "/chat - Send message to AI"
     )
     await update.message.reply_text(welcome_text)
 

@@ -8,7 +8,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Commands:\n"
         "/start - Start the bot\n"
         "/help - Show this help message\n"
-        "/list - Show your uploaded books\n\n"
+        "/list - Show your uploaded books\n"
+         "/chat - Send message to AI\n"
         "Simply send me any PDF file to get started!"
     )
     await update.message.reply_text(welcome_text)
@@ -23,7 +24,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Commands:\n"
         "/start - Restart the bot\n"
         "/help - Show this help\n"
-        "/list - Show your books"
+        "/list - Show your books\n"
+        "/chat - Send message to AI"
     )
     await update.message.reply_text(help_text)
 

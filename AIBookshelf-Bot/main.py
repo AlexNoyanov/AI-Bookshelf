@@ -6,6 +6,9 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from datetime import datetime
 
+from handlers.chat_handler import chat_command
+
+
 # Set up logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -19,6 +22,9 @@ sys.path.append(current_dir)
 
 from handlers.start import start_command, help_command, list_command
 from utils.db import Database
+
+from handlers.chat_handler import chat_command
+
 
 # Load environment variables
 load_dotenv()
@@ -78,6 +84,7 @@ def run_bot():
     app.add_handler(CommandHandler("start", start_command))
     app.add_handler(CommandHandler("help", help_command))
     app.add_handler(CommandHandler("list", list_command))
+    app.add_handler(CommandHandler("chat", chat_command))
     app.add_handler(MessageHandler(filters.Document.PDF, pdf_handler.handle_pdf))
     
     # Store database instance in bot_data
