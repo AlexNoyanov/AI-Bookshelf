@@ -6,6 +6,12 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from datetime import datetime
 
+from handlers.chat_handler import (
+    chat_command, 
+    handle_unknown_command, 
+    handle_unknown_message
+)
+
 # Set up logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -19,6 +25,9 @@ sys.path.append(current_dir)
 
 from handlers.start import start_command, help_command, list_command
 from utils.db import Database
+
+from handlers.chat_handler import chat_command
+
 
 # Load environment variables
 load_dotenv()
@@ -37,6 +46,16 @@ class PDFHandler:
                 user_id=user.id,
                 username=user.username
             )
+
+             # Log PDF upload attempt
+            self.db.log_user_activity(
+                user_id=user.id,
+                username=user.username,
+                action_type='pdf_upload',
+                message=f"File: {file.file_name}, Size: {file.file_size} bytes"
+            )
+            
+        
             
             # Then save the book
             book_id = self.db.insert_book(
@@ -44,6 +63,13 @@ class PDFHandler:
                 book_name=file.file_name,
                 file_id=file.file_id,
                 file_size=file.file_size
+            )
+              # Log successful upload
+            self.db.log_user_activity(
+                user_id=user.id,
+                username=user.username,
+                action_type='pdf_success',
+                message=f"Successfully uploaded: {file.file_name}"
             )
             
             await update.message.reply_text(
@@ -53,6 +79,12 @@ class PDFHandler:
             )
 
         except Exception as e:
+            self.db.log_user_activity(
+                    user_id=user.id,
+                    username=user.username,
+                    action_type='error',
+                    message=str(e)
+                )
             logger.error(f"Error handling PDF: {e}")
             await update.message.reply_text("Sorry, there was an error processing your PDF.")
             raise
@@ -78,8 +110,13 @@ def run_bot():
     app.add_handler(CommandHandler("start", start_command))
     app.add_handler(CommandHandler("help", help_command))
     app.add_handler(CommandHandler("list", list_command))
+    app.add_handler(CommandHandler("chat", chat_command))
     app.add_handler(MessageHandler(filters.Document.PDF, pdf_handler.handle_pdf))
     
+     # Add unknown handlers - IMPORTANT: These should be added last
+    app.add_handler(MessageHandler(filters.COMMAND, handle_unknown_command))  # Handle unknown commands
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_unknown_message))  # Handle unknown messages
+
     # Store database instance in bot_data
     app.bot_data['db'] = db
 
