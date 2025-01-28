@@ -14,7 +14,7 @@ It will help you save a lot of time and give all the answers.
 Simple: 
 1) Go to @ai_bookshelf_bot in Telegram and hit /start
 2) Send all the books you need answers from in PDF
-3) Start chatting with /question (Dev in progress... You can help too!)
+3) Start chatting with /chat (Dev in progress... You can help too!)
 <img width="1424" alt="Screenshot 2025-01-28 at 13 44 21" src="https://github.com/user-attachments/assets/71908eca-97cb-40a1-aab6-2200c6a1064a" />
 
 
