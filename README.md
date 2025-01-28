@@ -6,7 +6,7 @@
 Put your books here and chat with AI about it
 
 # Main goal
-Why we don't usaly have a privelege of having a free time to read to the book we want I came up with this simple solution.
+While we don't usaly have a privelege of having a free time to read to the book we want I came up with this simple solution.
 Just put your books on AI Bookshelf and ask all the questions about them! 
 It will help you save a lot of time and give all the answers. 
 
