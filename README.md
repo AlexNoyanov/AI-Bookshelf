@@ -15,7 +15,8 @@ Simple:
 1) Go to @ai_bookshelf_bot in Telegram and hit /start
 2) Send all the books you need answers from in PDF
 3) Start chatting with /question (Dev in progress... You can help too!)
-   <img width="1426" alt="Screenshot 2025-01-26 at 23 13 17" src="https://github.com/user-attachments/assets/cdb757ca-b01f-4672-b5cc-862a6334fe2f" />
+<img width="1424" alt="Screenshot 2025-01-28 at 13 44 21" src="https://github.com/user-attachments/assets/71908eca-97cb-40a1-aab6-2200c6a1064a" />
+
 
 
 # Technologies 
