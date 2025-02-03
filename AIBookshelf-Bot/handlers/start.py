@@ -106,7 +106,6 @@ Here are the available commands:
 /help - Show this help message
 /list - List your uploaded books
 /chat - Chat with your books
-/logs - View your activity logs
 
 You can also send me PDF files directly to upload them.
         """
