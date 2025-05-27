@@ -9,7 +9,7 @@ from utils.db import Database
 logger = logging.getLogger(__name__)
 
 GPT4ALL_API_BASE = "http://localhost:4891/v1"
-DEFAULT_MODEL = "gpt4all-j-v1.3-groovy"
+DEFAULT_MODEL = "llama-3-8b-instruct"
 
 async def chat_with_gpt4all(message: str) -> str:
     """Send a chat request to GPT4ALL API"""
